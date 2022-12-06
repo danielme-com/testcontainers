@@ -40,7 +40,7 @@ class MySQLContainerTest {
     }
 
     @Test
-    void testRunning() {
+    void testMySQLContainerIsRunning() {
         assertThat(mySQLContainer.isRunning()).isTrue();
     }
 

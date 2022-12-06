@@ -21,7 +21,7 @@ class ApacheWebContainerTest {
             .withExposedPorts(80);
 
     @Test
-    void testGet() throws Exception {
+    void testGetResponseIsOk() throws Exception {
         String address = "http://" + httpdContainer.getHost() + ":" + httpdContainer.getMappedPort(80);
         HttpRequest localhost = HttpRequest.newBuilder(new URI(address)).build();
 

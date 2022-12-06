@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MySQLContainerClass1Test extends MySQLContainerBaseTest {
 
     @Test
-    void testRunning() {
+    void testMySQLContainerIsRunning() {
         assertThat(mySQLContainer.isRunning()).isTrue();
     }
 
