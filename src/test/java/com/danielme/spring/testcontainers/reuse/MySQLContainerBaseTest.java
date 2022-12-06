@@ -19,7 +19,7 @@ public class MySQLContainerBaseTest {
             .withUsername("user")
             .withPassword("pass")
             .withReuse(true); //to use this, enable testcontainers.reuse.enable in testcontainers properties
-    // or set the env var TESTCONTAINERS_REUSE_ENABLED
+    // see https://www.testcontainers.org/features/reuse/
 
     static {
         mySQLContainer.start();
