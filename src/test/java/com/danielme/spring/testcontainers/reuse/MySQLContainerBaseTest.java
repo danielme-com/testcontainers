@@ -7,6 +7,7 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
 
 import javax.sql.DataSource;
+import java.util.Map;
 
 @SpringBootTest
 public class MySQLContainerBaseTest {
@@ -18,6 +19,7 @@ public class MySQLContainerBaseTest {
             .withDatabaseName("testcontainer")
             .withUsername("user")
             .withPassword("pass")
+            .withTmpFs(Map.of("/var/lib/mysql", "rw"))
             .withReuse(true); //to use this, enable testcontainers.reuse.enable in testcontainers properties
     // see https://www.testcontainers.org/features/reuse/
 
