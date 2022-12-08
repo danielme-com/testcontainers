@@ -5,15 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,13 +42,7 @@ class MySQLContainerTest {
 
     @Test
     void testTableExists() throws SQLException {
-        try (Connection conn = dataSource.getConnection();
-             ResultSet resultSet = conn.prepareStatement("SHOW TABLES").executeQuery();) {
-            resultSet.next();
-
-            String table = resultSet.getString(1);
-            assertThat(table).isEqualTo("tests");
-        }
+        TableTestAssertion.assertTableExists(dataSource);
     }
 
 }

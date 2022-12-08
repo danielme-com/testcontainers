@@ -1,5 +1,3 @@
-USE testcontainer;
-
 CREATE TABLE tests (
     id BIGINT AUTO_INCREMENT PRIMARY KEY
-)
+);

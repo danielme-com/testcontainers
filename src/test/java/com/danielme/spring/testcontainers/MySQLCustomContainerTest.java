@@ -45,13 +45,7 @@ class MySQLCustomContainerTest {
 
     @Test
     void testTableExists() throws SQLException {
-        try (Connection conn = dataSource.getConnection();
-             ResultSet resultSet = conn.prepareStatement("SHOW TABLES").executeQuery();) {
-            resultSet.next();
-
-            String table = resultSet.getString(1);
-            assertThat(table).isEqualTo("tests");
-        }
+        TableTestAssertion.assertTableExists(dataSource);
     }
 
 }
