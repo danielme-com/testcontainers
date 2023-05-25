@@ -12,11 +12,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.MountableFile;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @Testcontainers
